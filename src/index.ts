@@ -20,6 +20,7 @@ export function tsAlias({
 }: TsAliasConfig = {}): Plugin {
   return {
     name: 'ts-alias',
+    enforce: 'pre',
     config(viteConfig) {
       const root = path.normalize(
         viteConfig.root ? path.resolve(viteConfig.root) : process.cwd()
@@ -43,7 +44,6 @@ export function tsAlias({
           if (value[0]) {
             const find = key.replace('/*', '');
             const replacement = path.resolve(
-              loaded.path,
               baseUrl,
               value[0].replace('/*', '').replace('*', '')
             );
