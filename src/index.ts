@@ -19,7 +19,7 @@ export function tsAlias({
   tsConfigName = 'tsconfig.json',
 }: TsAliasConfig = {}): Plugin {
   return {
-    name: 'ts-alias',
+    name: 'vite-plugin-ts-alias',
     enforce: 'pre',
     config(viteConfig) {
       const root = path.normalize(
